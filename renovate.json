@@ -1,5 +1,48 @@
 {
   "extends": [
     "config:base"
+  ],
+  "ignorePresets": [":prHourlyLimit2"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+        "after 1am"
+    ]
+  },
+  "baseBranches": [
+    "master"
+  ],
+  "major": {
+    "enabled": false
+  },
+  "minor": {
+    "enabled": false
+  },
+  "patch": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "^@angular.*"
+      ],
+      "groupName": "angular"
+    },
+    {
+      "packageNames": [
+        "typescript"
+      ],
+      "separateMinorPatch": true
+    },
+    {
+      "packageNames": [
+        "typescript"
+      ],
+      "updateTypes": [
+        "minor",
+        "major"
+      ],
+      "enabled": false
+    }
   ]
 }
