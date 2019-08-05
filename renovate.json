@@ -6,14 +6,14 @@
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": [
-        "after 1am"
+      "after 1am"
     ]
   },
   "baseBranches": [
     "master"
   ],
   "major": {
-    "enabled": false
+    "enabled": true
   },
   "minor": {
     "enabled": false
