@@ -1,5 +1,39 @@
 {
   "extends": [
     "config:base"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+        "after 1am"
+    ]
+  },
+  "baseBranches": [
+    "ci-fixes",
+    "master"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "^@angular.*"
+      ],
+      "groupName": "angular"
+    },
+    {
+      "packageNames": [
+        "typescript"
+      ],
+      "separateMinorPatch": true
+    },
+    {
+      "packageNames": [
+        "typescript"
+      ],
+      "updateTypes": [
+        "minor",
+        "major"
+      ],
+      "enabled": false
+    }
   ]
 }
