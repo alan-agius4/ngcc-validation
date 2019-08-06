@@ -22,11 +22,25 @@ const ignore = new Set([
 
 const projects = readdirSync('.').filter(
   (dir: string) => !ignore.has(dir) && dir.endsWith('-ngcc') && statSync(dir).isDirectory()
-);
+).reverse();
+
+const one  = projects.filter((_name, i) => i % 3 == 1);
+const two  = projects.filter((_name, i) => i % 3 == 2);
+const tree  = projects.filter((_name, i) => i % 3 == 3);
+
 console.log('Updating Angular dependencies for all the projects');
-projects.forEach(project => {
-  updateDeps(project);
-  execSync(`cd ${resolve(__dirname, '..', project)} && npm i --package-lock-only`, {
-    stdio: 'inherit'
+Promise.all([
+  fn(one),
+  fn(two),
+  fn(tree),
+]).then(x => console.log('done'))
+
+
+async function fn(one: string[]) {
+  one.forEach(project => {
+    updateDeps(project);
+    execSync(`cd ${resolve(__dirname, '..', project)} && npm i --package-lock-only`, {
+      stdio: 'inherit'
+    });
   });
-});
+}
