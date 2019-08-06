@@ -12,15 +12,6 @@
   "baseBranches": [
     "master"
   ],
-  "major": {
-    "enabled": true
-  },
-  "minor": {
-    "enabled": false
-  },
-  "patch": {
-    "enabled": false
-  },
   "packageRules": [
     {
       "packagePatterns": [
